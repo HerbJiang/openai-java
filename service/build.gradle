@@ -57,3 +57,10 @@ publishing {
 	}
 }
 
+task copyDependencies(type: Copy) {
+	from configurations.runtimeClasspath
+	into "$buildDir/libs/dependencies"
+	include "*.jar"
+}
+
+build.dependsOn copyDependencies

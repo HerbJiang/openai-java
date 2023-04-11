@@ -36,7 +36,7 @@ def getRepositoryPassword() {
 publishing {
 	publications {
 		maven(MavenPublication) {
-			version = '0.11.0'
+			version = '0.12.0'
 			groupId = 'com.intumit.openai'
 			artifactId = 'openai-service'
 			from components.java

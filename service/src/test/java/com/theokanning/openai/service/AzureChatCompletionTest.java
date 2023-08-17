@@ -4,9 +4,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-import com.theokanning.openai.chat.ChatCompletionChoice;
-import com.theokanning.openai.chat.ChatCompletionRequest;
-import com.theokanning.openai.chat.Message;
+import com.theokanning.openai.completion.chat.ChatCompletionChoice;
+import com.theokanning.openai.completion.chat.ChatCompletionRequest;
+import com.theokanning.openai.completion.chat.ChatMessage;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,7 +22,7 @@ public class AzureChatCompletionTest {
     void createCompletion() {
         ChatCompletionRequest completionRequest = ChatCompletionRequest.builder()
                 .model("gpt-3.5-turbo")
-                .messages(Collections.singletonList(new Message("user", "你好")))
+                .messages(Collections.singletonList(new ChatMessage("user", "你好")))
                 .user("testing")
                 .logitBias(new HashMap<>())
                 .build();

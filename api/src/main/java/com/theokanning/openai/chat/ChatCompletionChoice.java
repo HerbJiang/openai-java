@@ -8,6 +8,7 @@ import lombok.Data;
  * https://platform.openai.com/docs/api-reference/chat/create
  */
 @Data
+@Deprecated
 public class ChatCompletionChoice {
 
     /**

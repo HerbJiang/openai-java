@@ -11,6 +11,7 @@ import java.util.List;
  * https://beta.openai.com/docs/api-reference/completions/create
  */
 @Data
+@Deprecated
 public class ChatCompletionResult {
     /**
      * A unique id assigned to this completion.

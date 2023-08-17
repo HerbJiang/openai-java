@@ -12,6 +12,7 @@ import java.util.Map;
  * https://beta.openai.com/docs/api-reference/create-completion
  */
 @Data
+@Deprecated
 public class ChatLogProbResult {
 
     /**

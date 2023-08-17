@@ -18,6 +18,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Deprecated
 public class ChatCompletionRequest {
 
     /**

@@ -1,6 +1,5 @@
 apply plugin: 'java-library'
 apply plugin: 'maven-publish'
-//apply plugin: "com.vanniktech.maven.publish"
 
 archivesBaseName='openai-client'
 
@@ -35,7 +34,7 @@ def getRepositoryPassword() {
 publishing {
 	publications {
 		maven(MavenPublication) {
-			version = '0.12.0'
+			version = '0.15.1'
 			groupId = 'com.intumit.openai'
 			artifactId = 'openai-client'
 			from components.java

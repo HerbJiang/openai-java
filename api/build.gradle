@@ -1,5 +1,5 @@
 apply plugin: 'java-library'
-apply plugin: "com.vanniktech.maven.publish"
+apply plugin: 'maven-publish'
 
 dependencies {
     api libs.jacksonAnnotations
@@ -20,6 +20,38 @@ compileJava {
 
 test {
     useJUnitPlatform()
+}
+
+def getRepositoryUsername() {
+    return hasProperty('MAVEN_REPO_USERNAME') ? MAVEN_REPO_USERNAME : ""
+}
+
+def getRepositoryPassword() {
+    return hasProperty('MAVEN_REPO_PASSWORD') ? MAVEN_REPO_PASSWORD : ""
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            version = '0.15.1'
+            groupId = 'com.intumit.openai'
+            artifactId = 'openai-api'
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            allowInsecureProtocol true
+            def releasesRepoUrl = 'http://git.intumit.com:5997/repository/maven-releases/'
+            def snapshotsRepoUrl = 'http://git.intumit.com:5997/repository/maven-snapshots/'
+
+            url = releasesRepoUrl
+            credentials {
+                username = getRepositoryUsername()
+                password = getRepositoryPassword()
+            }
+        }
+    }
 }
 
 task copyDependencies(type: Copy) {
